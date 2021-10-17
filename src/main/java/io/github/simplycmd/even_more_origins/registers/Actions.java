@@ -66,6 +66,17 @@ public class Actions {
                     }
                 })
         );
+        register(new ActionFactory<>(new Identifier(Main.MOD_ID, "rocket_without_the_rocket"), new SerializableData()
+                .add("power", SerializableDataTypes.INT),
+                (data, entity) -> {
+                    World world = entity.getEntityWorld();
+                    if (!world.isClient && entity instanceof LivingEntity) {
+                        ItemStack firework = Items.FIREWORK_ROCKET.getDefaultStack();
+                        firework.getOrCreateSubNbt("Fireworks").putByte("Flight", (Byte) data.get("power"));
+                        FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(world, firework, (LivingEntity) entity);
+                    }
+                })
+        );
         register(new ActionFactory<>(new Identifier(Main.MOD_ID, "flip"), new SerializableData(),
                 (data, entity) -> {
                     int radius = 10;
