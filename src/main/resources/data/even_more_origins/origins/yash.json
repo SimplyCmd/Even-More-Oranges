@@ -1,0 +1,10 @@
+{
+	"powers": [
+		"even_more_origins:amphibious"
+	],
+	"icon": "minecraft:salmon",
+	"order": 1,
+	"impact": 3,
+	"name": "Yash",
+	"description":"Some kind of yeti mutant, nobody really knows where you came from"
+}
