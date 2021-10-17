@@ -1,10 +1,8 @@
 {
     "type": "origins:action_over_time",
     "entity_action": {
-        "type": "origins:add_velocity",
-        "z": 50,
-        "space":"velocity",
-        "set": true
+        "type": "even_more_origins:rocket_without_the_rocket",
+        "power": 1
     },
     "interval": 1,
     "condition": {
