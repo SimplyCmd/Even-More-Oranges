@@ -35,7 +35,7 @@
     "condition": {
         "type": "origins:resource",
         "resource": "even_more_origins:phoenixcooldown",
-        "comparison": ">",
-        "compare_to": 1
+        "comparison": "==",
+        "compare_to": 0
   }
 }
