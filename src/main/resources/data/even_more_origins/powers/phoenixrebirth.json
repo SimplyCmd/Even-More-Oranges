@@ -4,8 +4,8 @@
         "type": "origins:and",
         "actions": [
             {
-                "type": "origins:clear_effect",
-                "power": "phoenixcooldown"
+                "type": "origins:trigger_cooldown",
+                "power": "even_more_origins:phoenixcooldown"
             },
             {
                 "type": "origins:clear_effect"
@@ -32,9 +32,9 @@
         ]
     }
     "condition": {
-      "type": "origins:resource",
-      "resource": "*:phoenixcooldown",
-      "comparison": ">",
-      "compare_to": 1
+        "type": "origins:resource",
+        "resource": "even_more_origins:phoenixcooldown",
+        "comparison": ">",
+        "compare_to": 1
   }
 }
