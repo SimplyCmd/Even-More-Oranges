@@ -1,10 +1,15 @@
 {
 	"powers": [
-		"even_more_origins:amphibious"
+		"even_more_origins:amphibious",
+		"even_more_origins:levitate",
+		"even_more_origins:snowballer",
+		"even_more_origins:1.5_scale",
+		"origins:carnivore",
+		"even_more_origins:hot_biome_hurt"
 	],
 	"icon": "minecraft:salmon",
 	"order": 1,
-	"impact": 3,
+	"impact": 1,
 	"name": "Yash",
-	"description":"Some kind of yeti mutant, nobody really knows where you came from"
+	"description":"Some kind of yeti-fish mutant, nobody really knows where you came from"
 }

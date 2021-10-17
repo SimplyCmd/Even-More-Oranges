@@ -1,0 +1,19 @@
+{
+  "type": "origins:fire_projectile",
+  "entity_type": "minecraft:snowball",
+  "cooldown": 20,
+  "hud_render": {
+    "should_render": false
+  },
+  "count": 4,
+  "interval": 20,
+  "key": {
+    "key": "key.use",
+    "continuous": true
+  },
+  "condition": {
+    "type": "origins:sneaking"
+  },
+  "name": "Professional Snow Scooper",
+  "description": "Your magical snowy aura allows you to summon snowballs out of thin air"
+}

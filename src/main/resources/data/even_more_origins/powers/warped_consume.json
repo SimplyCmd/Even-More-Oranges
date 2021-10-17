@@ -12,16 +12,16 @@
         "type": "origins:apply_effect",
         "effect": {
           "effect": "minecraft:speed",
-          "amplifier": 0,
+          "amplifier": 1,
           "duration": 200
         }
       },
       {
         "type": "origins:apply_effect",
         "effect": {
-          "effect": "minecraft:haste",
+          "effect": "minecraft:regeneration",
           "amplifier": 0,
-          "duration": 200
+          "duration": 50
         }
       },
       {
@@ -47,5 +47,6 @@
       }
     ]
   },
-  "hidden":true
+  "name": "Munch",
+  "description": "Throw a warped fungus on the ground to consume it and gain a buff"
 }

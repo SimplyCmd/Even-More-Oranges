@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ESE",
+        " e "
+    ],
+    "key": {
+        "E": {
+            "item": "minecraft:emerald"
+        },
+        "S": {
+            "item": "minecraft:nether_star"
+        },
+        "e": {
+            "item": "minecraft:ender_pearl"
+        }
+    },
+    "result": {
+        "item": "origins:orb_of_origin",
+        "count": 1
+    }
+}

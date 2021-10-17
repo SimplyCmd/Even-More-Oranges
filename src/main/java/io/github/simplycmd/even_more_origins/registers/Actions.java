@@ -6,6 +6,7 @@ import java.util.Random;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.SerializableData;
+import io.github.apace100.calio.data.SerializableDataTypes;
 import io.github.simplycmd.even_more_origins.Main;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -17,12 +18,15 @@ import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.passive.ParrotEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.FireworkRocketEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Box;
@@ -35,9 +39,7 @@ public class Actions {
 
     public static void init() {
         register(new ActionFactory<>(new Identifier(Main.MOD_ID, "become_geist"), new SerializableData(),
-                (data, entity) -> {
-                    ((PlayerEntity)entity).addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK, 600, 0, false, false, false));
-                })
+                (data, entity) -> ((PlayerEntity)entity).addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK, 600, 0, false, false, false)))
         );
         register(new ActionFactory<>(new Identifier(Main.MOD_ID, "become_bat"), new SerializableData(),
                 (data, entity) -> {
@@ -50,8 +52,18 @@ public class Actions {
                 })
         );
         register(new ActionFactory<>(new Identifier(Main.MOD_ID, "ram"), new SerializableData(),
+                (data, entity) -> Main.ramTicks.replace(entity.getUuid(), 20))
+        );
+        register(new ActionFactory<>(new Identifier(Main.MOD_ID, "rocket"), new SerializableData()
+                .add("power", SerializableDataTypes.INT),
                 (data, entity) -> {
-                    Main.ramTicks.replace(entity.getUuid(), 20);
+                    World world = entity.getEntityWorld();
+                    if (!world.isClient && entity instanceof LivingEntity) {
+                        ItemStack firework = Items.FIREWORK_ROCKET.getDefaultStack();
+                        firework.getOrCreateSubNbt("Fireworks").putByte("Flight", (Byte) data.get("power"));
+                        FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(world, firework, (LivingEntity) entity);
+                        world.spawnEntity(fireworkRocketEntity);
+                    }
                 })
         );
         register(new ActionFactory<>(new Identifier(Main.MOD_ID, "flip"), new SerializableData(),

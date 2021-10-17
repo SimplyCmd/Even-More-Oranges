@@ -39,5 +39,6 @@
       }
     ]
   },
-  "hidden":true
+  "name": "Munch",
+  "description": "Throw a crimson fungus on the ground to consume it and gain a buff"
 }
