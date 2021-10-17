@@ -1,7 +1,7 @@
 {
     "type": "origins:action_over_time",
     "entity_action": {
-        "type": "even_more_origins:rocket_without_the_rocket",
+        "type": "even_more_origins:rocket",
         "power": 1
     },
     "interval": 1,
