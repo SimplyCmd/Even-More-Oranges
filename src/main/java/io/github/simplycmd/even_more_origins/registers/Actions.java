@@ -60,7 +60,7 @@ public class Actions {
                     World world = entity.getEntityWorld();
                     if (!world.isClient && entity instanceof LivingEntity) {
                         ItemStack firework = Items.FIREWORK_ROCKET.getDefaultStack();
-                        firework.getOrCreateSubNbt("Fireworks").putByte("Flight", (Byte) data.get("power"));
+                        firework.getOrCreateSubNbt("Fireworks").putByte("Flight", ((Integer) data.get("power")).byteValue());
                         FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(world, firework, (LivingEntity) entity);
                         world.spawnEntity(fireworkRocketEntity);
                     }
